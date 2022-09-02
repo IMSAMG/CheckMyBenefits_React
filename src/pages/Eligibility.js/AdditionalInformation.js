@@ -18,6 +18,7 @@ import {
   eligibilityFormSchema,
 } from "../../schemas/eligibiltyFormSchema";
 import {
+  clearEligibilityFormData,
   saveMemberEligibilityFormData,
   setCurrentFunnel,
 } from "../../slices/memberEligibilityFormSlice";
@@ -203,26 +204,41 @@ const AdditionalInformation = () => {
           justifyContent: "space-around",
         }}
       >
-        <Button onClick={() => navigate("/")}>Exit Pre-Sceener</Button>
         <Box
           sx={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-between",
+            justifyContent: "space-around",
             flexDirection: { xs: "column", sm: "column", md: "row" },
-            gap: 3,
           }}
         >
           <Button
-            variant="contained"
-            color="secondary"
-            onClick={handleBackButtonClickHandler}
+            onClick={() => {
+              dispatch(clearEligibilityFormData());
+              navigate("/");
+            }}
           >
-            Back
+            Exit Pre-Sceener
           </Button>
-          <Button variant="contained" color="success" type="submit">
-            Next
-          </Button>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: 3,
+            }}
+          >
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={handleBackButtonClickHandler}
+            >
+              Back
+            </Button>
+            <Button variant="contained" color="success" type="submit">
+              Next
+            </Button>
+          </Box>
         </Box>
       </CardActions>
     </Box>

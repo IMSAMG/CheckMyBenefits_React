@@ -20,6 +20,7 @@ import {
   eligibilityFormSchema,
 } from "../../schemas/eligibiltyFormSchema";
 import {
+  clearEligibilityFormData,
   saveMemberEligibilityFormData,
   setCurrentFunnel,
 } from "../../slices/memberEligibilityFormSlice";
@@ -327,7 +328,14 @@ const MemberInformation = () => {
           flexDirection: { xs: "column", sm: "column", md: "row" },
         }}
       >
-        <Button onClick={() => navigate("/")}>Exit Pre-Sceener</Button>
+        <Button
+          onClick={() => {
+            dispatch(clearEligibilityFormData());
+            navigate("/");
+          }}
+        >
+          Exit Pre-Sceener
+        </Button>
         <Box
           sx={{
             display: "flex",

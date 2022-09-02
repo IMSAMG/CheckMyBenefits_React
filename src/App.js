@@ -11,6 +11,14 @@ import HomePage from "./pages/HomePage";
 
 function App() {
   const userLoggedIn = useSelector((state) => state.loginState.userLoggedIn);
+  // const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   if (!userLoggedIn) {
+  //     navigate("/");
+  //   }
+  // }, [userLoggedIn, navigate]);
+
   return (
     <>
       <Box
@@ -21,6 +29,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="check-eligibility" element={<EligibilityForm />} />
           <Route path="dashboard" element={<Dashboard />}>
+            <Route path="overview/food-progress" element={<FoodProgress />} />
             <Route path="overview" exact element={<Overview />} />
             <Route path="food" exact element={<Overview />} />
             <Route path="cash" exact element={<Overview />} />
@@ -28,7 +37,6 @@ function App() {
             <Route path="housing" exact element={<Overview />} />
             <Route path="contact-us" exact element={<Overview />} />
             <Route path="account" exact element={<Overview />} />
-            <Route path="food-progress" element={<FoodProgress />} />
           </Route>
         </Routes>
         {!userLoggedIn && <Footer />}

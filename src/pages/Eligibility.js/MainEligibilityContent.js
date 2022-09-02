@@ -3,7 +3,10 @@ import { Box } from "@mui/system";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setCurrentFunnel } from "../../slices/memberEligibilityFormSlice";
+import {
+  clearEligibilityFormData,
+  setCurrentFunnel,
+} from "../../slices/memberEligibilityFormSlice";
 
 const MainEligibilityContent = () => {
   const navigate = useNavigate();
@@ -64,7 +67,14 @@ const MainEligibilityContent = () => {
           flexDirection: { xs: "column", sm: "column", md: "row" },
         }}
       >
-        <Button onClick={() => navigate("/")}>Exit Pre-Sceener</Button>
+        <Button
+          onClick={() => {
+            dispatch(clearEligibilityFormData());
+            navigate("/");
+          }}
+        >
+          Exit Pre-Sceener
+        </Button>
         <Box
           sx={{
             display: "flex",

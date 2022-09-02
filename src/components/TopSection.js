@@ -189,7 +189,7 @@ const TopSection = () => {
               headerLabel="Food: PENDING INTERVIEW"
               subText="This is a succint, helpful message about an action needed to move forward in the application."
               clickable={true}
-              onClickHandler={() => navigate("/dashboard/food-progress")}
+              onClickHandler={() => navigate("food-progress")}
             />
             <ApplicationCard
               appStatus="error"

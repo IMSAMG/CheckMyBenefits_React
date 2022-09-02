@@ -41,6 +41,7 @@ export const memberEligibilityFormSlice = createSlice({
     setCurrentUuid(state, action) {
       state.currentuuid = action.payload;
     },
+    clearEligibilityFormData: () => initialState,
   },
 });
 
@@ -48,6 +49,7 @@ export const memberEligibilityFormSlice = createSlice({
 export const {
   saveMemberEligibilityFormData,
   setCurrentUuid,
+  clearEligibilityFormData,
   setCurrentFunnel,
 } = memberEligibilityFormSlice.actions;
 
