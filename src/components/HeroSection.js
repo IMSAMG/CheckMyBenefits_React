@@ -1,12 +1,9 @@
 import { Box, Typography } from "@mui/material";
-import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import backgroundEllipse from "../assets/images/ellipse.svg";
-import { clearEligibilityFormData } from "../slices/memberEligibilityFormSlice";
 import { HeroButton } from "../styledComponents/HeroButton";
 
 const HeroSection = () => {
-  const dispatch = useDispatch();
   return (
     <Box
       sx={{
@@ -60,7 +57,6 @@ const HeroSection = () => {
             fontSize: { xs: "0.8rem", sm: "0.8rem", md: "1rem" },
             display: { xs: "none", sm: "none", md: "block" },
           }}
-          onClick={() => dispatch(clearEligibilityFormData())}
         >
           Am I Eligible?
         </HeroButton>
